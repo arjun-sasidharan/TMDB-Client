@@ -1,4 +1,4 @@
-package com.example.tmdbclient.data.repository
+package com.example.tmdbclient.data.repository.movie
 
 import android.util.Log
 import com.example.tmdbclient.data.model.movie.Movie
@@ -57,7 +57,7 @@ class MovieRepositoryImpl(
     private suspend fun getMoviesFromCache() : List<Movie> {
         lateinit var movieList: List<Movie>
         try {
-            val response = movieCacheDataSource.getMoviesFromCache()
+            movieList = movieCacheDataSource.getMoviesFromCache()
         } catch (exception: Exception) {
             Log.i("TAG", exception.toString())
         }
